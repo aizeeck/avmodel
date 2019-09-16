@@ -64,12 +64,12 @@ class RestaurantProductDownloader {
             Elements suppliesInStockElements = productDetails.select("td[id^=quantity_]").select("tbody").select("tr");
 
             String html = new Browser().getPage(UNIT_GET_OFFERS_URL + id + "/step1/" + productId).toString();
-            try {
+//            try {
                 doc = Jsoup.parse(html);
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-                return products;
-            }
+//            } catch (IllegalArgumentException e) {
+//                e.printStackTrace();
+//                return products;
+//            }
             Elements consPerClientElement = doc
                     .select("body.window")
                     .select("div.supply_addition_info")

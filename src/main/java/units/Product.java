@@ -18,6 +18,30 @@ public class Product {
         this.primeCost = primeCost;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getConsPerTurn() {
+        return consPerTurn;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getQuality() {
+        return quality;
+    }
+
+    public double getPrimeCost() {
+        return primeCost;
+    }
+
     @Override
     public String toString() {
         return "Product{" +

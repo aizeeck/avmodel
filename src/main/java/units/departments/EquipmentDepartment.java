@@ -15,17 +15,17 @@ public class EquipmentDepartment {
     private static final String EQUIPMENT_POST_REF = Configuration.getInstance().getProperty("EQUIPMENT_POST_REF");
 
 
-    public static void repare(List<EquipmentUnit> units) {
+    public void repare(List<EquipmentUnit> units) {
         for (EquipmentUnit unit : units) {
             repare(unit);
         }
     }
 
-    public static void repare(EquipmentUnit unit) {
+    public void repare(EquipmentUnit unit) {
         repare(unit, unit.getEquiQualityReq());
     }
 
-    public static void repare(EquipmentUnit unit, double target) {
+    public void repare(EquipmentUnit unit, double target) {
 
         if (unit.getWairNum() == 0) return;
 
@@ -55,7 +55,7 @@ public class EquipmentDepartment {
         }
     }
 
-    private static void post(long unitId, Equipment e, int wear) {
+    private void post(long unitId, Equipment e, int wear) {
 
         Map<String, String> postParams = new HashMap<>();
         postParams.put("operation", "repair");

@@ -12,7 +12,7 @@ import java.util.Map;
 public class Browser {
     private static final String LOGIN_URL = Configuration.getInstance().getProperty("LOGIN_PAGE");
     private static final String VMAINHOST = Configuration.getInstance().getProperty("VMAINHOST");
-    static Map<String, String> cookies;
+    private static Map<String, String> cookies;
 
     public Document getPage (String url) {
         Document document = null;

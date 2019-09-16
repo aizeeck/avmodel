@@ -1,8 +1,10 @@
 package units;
 
+import downloaders.ProductConsumptionDownloader;
 import downloaders.UnitDownloader;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +14,7 @@ public class VirtaContext {
     private static Map<Integer, String> unitTypeMap;
     private static List<EquipmentUnit> equipedUnits = new ArrayList<>();
     private static List<EmployeeUnit> employeeUnits = new ArrayList<>();
+    private static Map<Integer, Map<Integer, Integer>> consumption = new HashMap<>();
 
     static {
         UnitDownloader unitDownloader = new UnitDownloader();
@@ -19,6 +22,8 @@ public class VirtaContext {
         organizedUnitsByType = unitDownloader.organizeUnitsByType(units);
         unitTypeMap = unitDownloader.unitsTypeMap(units);
         setEquipedUnits();
+        ProductConsumption productConsumption = new ProductConsumption();
+        consumption = new ProductConsumptionDownloader().download();
     }
 
     public static String checkUnitType(int unitId) {
@@ -60,5 +65,10 @@ public class VirtaContext {
 
     public static List<EmployeeUnit> getEmployeeUnits() {
         return employeeUnits;
+    }
+
+    public static int getProductConsumptionByUnitId(int unitId, int productId) {
+        return consumption.get(productId).get(unitId);
+
     }
 }

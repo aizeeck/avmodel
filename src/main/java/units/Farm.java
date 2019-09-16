@@ -2,7 +2,7 @@ package units;
 
 import java.util.List;
 
-public class Farm implements Supplieble {
+public class Farm implements Suppliable {
 
     private Unit unit;
     private List<Product> products;
@@ -15,7 +15,12 @@ public class Farm implements Supplieble {
     }
 
     @Override
-    public void optimizeSypplies() {
+    public int getUnitId() {
+        return unit.getUnitId();
+    }
 
+    @Override
+    public List<Product> getProducts() {
+        return products;
     }
 }
