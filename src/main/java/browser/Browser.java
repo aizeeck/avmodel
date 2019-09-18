@@ -60,6 +60,9 @@ public class Browser {
             return false;
         }
         cookies = response.cookies();
+        cookies.put("oldschool_unit_form", "yes");
+        cookies.put("oldschool_supply_tab", "yes");
+        cookies.put("virtonomics_unitlist_size", "400");
 
         boolean isLogedIn = document.outerHtml().contains("My company");
         if (isLogedIn) {
